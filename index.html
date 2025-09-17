@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayyan Nur Fauzan - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --text-heading: #111827;
+            --highlight-color: #0052d6;
+            --card-bg: #f9fafb;
+            --card-border: rgba(0, 82, 214, 0.2);
+            --skill-bg: rgba(0, 82, 214, 0.1);
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        html.dark {
+            --bg-color: #0a192f;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --text-heading: #e6f1ff;
+            --highlight-color: #64ffda;
+            --card-bg: #112240;
+            --card-border: rgba(100, 255, 218, 0.2);
+            --skill-bg: #112240;
+            --nav-bg: rgba(10, 25, 47, 0.8);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .glass-effect {
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .highlight {
+            color: var(--highlight-color);
+        }
+        .section-title {
+            color: var(--text-heading);
+        }
+        .text-secondary {
+             color: var(--text-secondary);
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--highlight-color);
+        }
+        .skill-tag {
+            background-color: var(--skill-bg);
+            color: var(--highlight-color);
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--highlight-color);
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+        .card {
+             background-color: var(--card-bg);
+             border: 1px solid var(--card-border);
+        }
+        .project-card-text {
+            background-color: var(--card-bg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 10;
+        }
+        .project-card-text:hover {
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+        }
+        .project-image-container {
+            background-color: var(--highlight-color);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .project-image-container:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold highlight">Rayyannur5</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link" data-lang-key="nav_about">About</a>
+                <a href="#experience" class="nav-link" data-lang-key="nav_experience">Experience</a>
+                <a href="#projects" class="nav-link" data-lang-key="nav_projects">Projects</a>
+                <a href="#skills" class="nav-link" data-lang-key="nav_skills">Skills</a>
+                <a href="#contact" class="nav-link" data-lang-key="nav_contact">Contact</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                 <button id="theme-toggle" class="p-2 rounded-md text-secondary hover:text-highlight">
+                    <svg id="theme-icon-light" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="theme-icon-dark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                <button id="lang-en" class="px-3 py-1 text-sm font-medium rounded-md bg-blue-500/20 text-white border border-blue-400">EN</button>
+                <button id="lang-id" class="px-3 py-1 text-sm font-medium rounded-md bg-transparent text-gray-400 border border-gray-600">ID</button>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 nav-link" data-lang-key="nav_about_mobile">About</a>
+            <a href="#experience" class="block py-2 nav-link" data-lang-key="nav_experience_mobile">Experience</a>
+            <a href="#projects" class="block py-2 nav-link" data-lang-key="nav_projects_mobile">Projects</a>
+            <a href="#skills" class="block py-2 nav-link" data-lang-key="nav_skills_mobile">Skills</a>
+            <a href="#contact" class="block py-2 nav-link" data-lang-key="nav_contact_mobile">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24 md:pt-32">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center">
+            <div>
+                <p class="text-lg highlight mb-4" data-lang-key="hero_greeting">Hi, my name is</p>
+                <h1 class="text-4xl md:text-7xl font-bold text-heading">Rayyan Nur Fauzan.</h1>
+                <h2 class="text-4xl md:text-7xl font-bold text-secondary mt-2" data-lang-key="hero_tagline">I build things for web and mobile.</h2>
+                <p class="mt-6 max-w-xl text-lg text-secondary" data-lang-key="hero_bio">I am a developer with skills in mobile and web application development, robotics, and the Internet of Things (IoT). I have had several freelance experiences as a Fullstack and Mobile Developer.</p>
+                <div class="mt-8 flex space-x-4">
+                    <a href="mailto:rayyannur5@gmail.com" class="inline-block px-8 py-3 text-sm font-semibold text-center transition duration-150 ease-in-out border-2 border-[--highlight-color] text-[--highlight-color] rounded-lg hover:bg-[--highlight-color] hover:text-white dark:hover:text-gray-900" data-lang-key="hero_contact_btn">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32">
+            <h2 class="text-3xl font-bold section-title mb-8 flex items-center">
+                <span class="highlight mr-4 text-2xl">01.</span>
+                <span data-lang-key="about_title">About Me</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+                <div class="md:col-span-3 text-secondary text-lg space-y-4">
+                    <p data-lang-key="about_p1">Hello! I'm Rayyan, a passionate developer based in Surabaya, Indonesia. My journey into technology started with a fascination for robotics and IoT, which quickly expanded into the world of web and mobile development.</p>
+                    <p data-lang-key="about_p2">I recently graduated with a Bachelor's degree in Informatics Engineering from the State University of Surabaya. Throughout my studies and freelance work, I've had the privilege of working on diverse projects—from creating cashier and attendance systems to developing educational games for children with disabilities.</p>
+                    <p data-lang-key="about_p3">I'm a two-time participant in the Bangkit Academy program, focusing on Mobile Development and Cloud Computing, where I honed my skills in modern technologies and collaborative project development.</p>
+                </div>
+                <div class="md:col-span-2 flex justify-center items-start">
+                    <div class="w-64 h-64 rounded-lg bg-blue-500/10 border-2 border-[--highlight-color] flex items-center justify-center overflow-hidden">
+                         <!-- <span class="text-secondary" data-lang-key="about_image_placeholder">Your Image Here</span> -->
+                          <img src="profile.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 md:py-32">
+            <h2 class="text-3xl font-bold section-title mb-8 flex items-center">
+                <span class="highlight mr-4 text-2xl">02.</span>
+                <span data-lang-key="experience_title">Work Experience</span>
+            </h2>
+            <div class="card p-6 rounded-lg">
+                <p class="text-sm highlight mb-1" data-lang-key="exp_lms_date">July 2024 - Present</p>
+                <h3 class="font-bold text-xl text-heading" data-lang-key="exp_lms_title">Fullstack Developer at PT Lestari Mulia Sentosa</h3>
+                <p class="text-secondary mt-2 mb-4" data-lang-key="exp_lms_desc">Working on Enterprise Resource Planning (ERP) and Mobile App development.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-tag">Laravel</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Flutter</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <h2 class="text-3xl font-bold section-title mb-12 flex items-center">
+                <span class="highlight mr-4 text-2xl">03.</span>
+                <span data-lang-key="projects_title">Some Things I've Built</span>
+            </h2>
+
+            <div class="space-y-20">
+                <!-- Project 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                    <div class="md:col-span-2 md:text-right md:order-last">
+                        <p class="text-sm highlight mb-2" data-lang-key="proj1_featured">Featured Project</p>
+                        <h3 class="font-bold text-2xl text-heading mb-4" data-lang-key="proj1_title">Cashier & Attendance App</h3>
+                        <div class="project-card-text p-6 rounded-lg shadow-lg mb-4 card">
+                            <p class="text-secondary" data-lang-key="proj1_desc">A cashier and attendance app for nitrogen gas station employees.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-end">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">PHP</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 project-image-container">
+                        <a href="project1.png" class="w-full h-64 bg-slate-800 flex items-center justify-center overflow-hidden">
+                             <!-- <span class="text-slate-400" data-lang-key="project_image_placeholder">Project Image</span> -->
+                              <img src="project1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                 <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                    <div class="md:col-span-2 text-left">
+                        <p class="text-sm highlight mb-2" data-lang-key="proj2_featured">Featured Project</p>
+                        <h3 class="font-bold text-2xl text-heading mb-4" data-lang-key="proj2_title">School Academic System</h3>
+                         <div class="project-card-text p-6 rounded-lg shadow-lg mb-4 card">
+                            <p class="text-secondary" data-lang-key="proj2_desc">Built a full-stack web-based academic information system for SD Labschool Unesa 02 to manage student data, grades, and schedules.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 project-image-container">
+                        <a href="project2.png" class="w-full h-64 bg-slate-800 flex items-center justify-center overflow-hidden">
+                             <!-- <span class="text-slate-400" data-lang-key="project_image_placeholder">Project Image</span> -->
+                              <img src="project2.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                    <div class="md:col-span-2 md:text-right md:order-last">
+                        <p class="text-sm highlight mb-2" data-lang-key="proj3_featured">Featured Project</p>
+                        <h3 class="font-bold text-2xl text-heading mb-4" data-lang-key="proj3_title">NurseCall IoT System</h3>
+                        <div class="project-card-text p-6 rounded-lg shadow-lg mb-4 card">
+                           <p class="text-secondary" data-lang-key="proj3_desc">An IoT project for a real-time nurse call system from the patient's bed.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-end">
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">SIP</span>
+                            <span class="skill-tag">MQTT</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 project-image-container">
+                        <a href="project3.jpeg" class="w-full h-64 bg-slate-800 flex items-center justify-center overflow-hidden">
+                            <!-- <span class="text-slate-400" data-lang-key="project_image_placeholder">Project Image</span> -->
+                             <img src="project3.jpeg" alt="">
+                        </a>
+                    </div>
+                </div>
+                 <!-- Project 4 -->
+                 <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                    <div class="md:col-span-2 text-left">
+                        <p class="text-sm highlight mb-2" data-lang-key="proj4_featured">Featured Project</p>
+                        <h3 class="font-bold text-2xl text-heading mb-4" data-lang-key="proj4_title">SPBU Nitrogen Information System</h3>
+                         <div class="project-card-text p-6 rounded-lg shadow-lg mb-4 card">
+                            <p class="text-secondary" data-lang-key="proj4_desc">Comprehensive information system for nitrogen gas station employees, from attendance, transactions, HR features to payroll. The mobile app functions as a Point of Sale (POS) for operators.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="skill-tag">Laravel</span>
+                             <span class="skill-tag">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 project-image-container">
+                        <a href="project4.png" class="w-full h-64 bg-slate-800 flex items-center justify-center overflow-hidden">
+                             <!-- <span class="text-slate-400" data-lang-key="project_image_placeholder">Project Image</span> -->
+                              <img src="project4.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32">
+             <h2 class="text-3xl font-bold section-title mb-8 flex items-center">
+                <span class="highlight mr-4 text-2xl">04.</span>
+                <span data-lang-key="skills_title">My Skills</span>
+            </h2>
+            <div class="flex flex-wrap gap-4">
+                <span class="skill-tag">Flutter</span>
+                <span class="skill-tag">Android (Kotlin)</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">HTML & CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">MicroController (C++)</span>
+                <span class="skill-tag">IoT</span>
+                <span class="skill-tag">MQTT</span>
+                <span class="skill-tag">SIP</span>
+                <span class="skill-tag">Google Cloud</span>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 text-center">
+            <h2 class="text-2xl font-bold highlight mb-2" data-lang-key="contact_tagline">What's Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-heading mb-4" data-lang-key="contact_title">Get In Touch</h3>
+            <p class="max-w-2xl mx-auto text-secondary mb-8" data-lang-key="contact_desc">I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll do my best to get back to you!</p>
+            <a href="mailto:rayyannur5@gmail.com" class="inline-block px-8 py-4 text-lg font-semibold text-center transition duration-150 ease-in-out border-2 border-[--highlight-color] text-[--highlight-color] rounded-lg hover:bg-[--highlight-color] hover:text-white dark:hover:text-gray-900" data-lang-key="contact_btn">Say Hello</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-6 flex flex-col items-center justify-center space-y-4">
+             <div class="flex justify-center space-x-6">
+                <a href="https://github.com/rayyannur5" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-secondary hover:text-highlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/rayyan-nur-fauzan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-secondary hover:text-highlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://www.instagram.com/rayyannur5" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-secondary hover:text-highlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+            </div>
+            <p class="text-center text-xs text-secondary" data-lang-key="footer_credit">Designed & Built by Rayyan Nur Fauzan</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- TRANSLATION DATA ---
+        const translations = {
+            en: {
+                experience_title: "Work Experience",
+                exp_lms_date: "July 2024 - Present",
+                exp_lms_title: "Fullstack Developer at PT Lestari Mulia Sentosa",
+                exp_lms_desc: "Working on Enterprise Resource Planning (ERP) and Mobile App development.",
+                projects_title: "Some Things I've Built",
+                project_image_placeholder: "Project Image",
+                proj1_featured: "Featured Project",
+                proj1_title: "Cashier & Attendance App",
+                proj1_desc: "A cashier and attendance app for nitrogen gas station employees.",
+                proj2_featured: "Featured Project",
+                proj2_title: "School Academic System",
+                proj2_desc: "Built a full-stack web-based academic information system for SD Labschool Unesa 02 to manage student data, grades, and schedules.",
+                proj3_featured: "Featured Project",
+                proj3_title: "NurseCall IoT System",
+                proj3_desc: "An IoT project for a real-time nurse call system from the patient's bed.",
+                proj4_featured: "Featured Project",
+                proj4_title: "SPBU Nitrogen Information System",
+                proj4_desc: "Comprehensive information system for nitrogen gas station employees, from attendance, transactions, HR features to payroll. The mobile app functions as a Point of Sale (POS) for operators.",
+            },
+            id: {
+                experience_title: "Pengalaman Kerja",
+                exp_lms_date: "Juli 2024 - Sekarang",
+                exp_lms_title: "Fullstack Developer di PT Lestari Mulia Sentosa",
+                exp_lms_desc: "Mengerjakan pengembangan ERP (Enterprise Resource Planning) dan Aplikasi Mobile.",
+                projects_title: "Beberapa Proyek Saya",
+                project_image_placeholder: "Gambar Proyek",
+                proj1_featured: "Proyek Unggulan",
+                proj1_title: "Aplikasi Kasir & Absensi",
+                proj1_desc: "Aplikasi kasir dan absensi untuk karyawan SPBU nitrogen.",
+                proj2_featured: "Proyek Unggulan",
+                proj2_title: "Sistem Akademik Sekolah",
+                proj2_desc: "Membangun sistem informasi akademik berbasis web full-stack untuk SD Labschool Unesa 02 guna mengelola data siswa, nilai, dan jadwal.",
+                proj3_featured: "Proyek Unggulan",
+                proj3_title: "Sistem IoT NurseCall",
+                proj3_desc: "Proyek IoT untuk sistem pemanggil perawat dari tempat tidur pasien secara realtime.",
+                proj4_featured: "Proyek Unggulan",
+                proj4_title: "Sistem Informasi SPBU Nitrogen",
+                proj4_desc: "Sistem informasi komprehensif untuk pegawai SPBU nitrogen, mulai dari Kehadiran, Transaksi, Absensi, fitur kepegawaian hingga Penggajian. Aplikasi mobile digunakan untuk transaksi operator (POS).",
+            }
+        };
+
+        // Populate the rest of the translation object from the previous version
+        Object.assign(translations.en, {
+            nav_about: "About", nav_experience: "Experience", nav_projects: "Projects", nav_skills: "Skills", nav_contact: "Contact",
+            nav_about_mobile: "About", nav_experience_mobile: "Experience", nav_projects_mobile: "Projects", nav_skills_mobile: "Skills", nav_contact_mobile: "Contact",
+            hero_greeting: "Hi, my name is", hero_tagline: "I build things for web and mobile.", hero_bio: "I am a developer with skills in mobile and web application development, robotics, and the Internet of Things (IoT). I have had several freelance experiences as a Fullstack and Mobile Developer.", hero_contact_btn: "Contact Me",
+            about_title: "About Me", about_p1: "Hello! I'm Rayyan, a passionate developer based in Surabaya, Indonesia. My journey into technology started with a fascination for robotics and IoT, which quickly expanded into the world of web and mobile development.", about_p2: "I recently graduated with a Bachelor's degree in Informatics Engineering from the State University of Surabaya. Throughout my studies and freelance work, I've had the privilege of working on diverse projects—from creating cashier and attendance systems to developing educational games for children with disabilities.", about_p3: "I'm a two-time participant in the Bangkit Academy program, focusing on Mobile Development and Cloud Computing, where I honed my skills in modern technologies and collaborative project development.", about_image_placeholder: "Your Image Here",
+            skills_title: "My Skills",
+            contact_tagline: "What's Next?", contact_title: "Get In Touch", contact_desc: "I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll do my best to get back to you!", contact_btn: "Say Hello", footer_credit: "Designed & Built by Rayyan Nur Fauzan",
+        });
+        Object.assign(translations.id, {
+            nav_about: "Tentang Saya", nav_experience: "Pengalaman", nav_projects: "Proyek", nav_skills: "Keahlian", nav_contact: "Kontak",
+            nav_about_mobile: "Tentang Saya", nav_experience_mobile: "Pengalaman", nav_projects_mobile: "Proyek", nav_skills_mobile: "Keahlian", nav_contact_mobile: "Kontak",
+            hero_greeting: "Halo, nama saya", hero_tagline: "Saya membangun aplikasi web dan mobile.", hero_bio: "Saya seorang pengembang dengan keterampilan dalam pengembangan aplikasi mobile dan web, robotika, serta Internet of Things (IoT). Memiliki beberapa kali pengalaman freelance sebagai Fullstack dan Mobile Developer.", hero_contact_btn: "Hubungi Saya",
+            about_title: "Tentang Saya", about_p1: "Halo! Saya Rayyan, seorang pengembang yang bersemangat yang berbasis di Surabaya, Indonesia. Perjalanan saya di dunia teknologi dimulai dari ketertarikan pada robotika dan IoT, yang kemudian berkembang ke dunia pengembangan web dan mobile.", about_p2: "Saya baru saja lulus dengan gelar Sarjana Teknik Informatika dari Universitas Negeri Surabaya. Selama studi dan pekerjaan lepas, saya memiliki kesempatan untuk mengerjakan berbagai proyek—mulai dari membuat sistem kasir dan absensi hingga mengembangkan game edukasi untuk anak-anak disabilitas.", about_p3: "Saya adalah peserta program Bangkit Academy sebanyak dua kali, dengan fokus pada Pengembangan Mobile dan Cloud Computing, di mana saya mengasah keterampilan dalam teknologi modern dan pengembangan proyek kolaboratif.", about_image_placeholder: "Foto Anda Disini",
+            skills_title: "Keahlian Saya",
+            contact_tagline: "Selanjutnya?", contact_title: "Hubungi Saya", contact_desc: "Saat ini saya terbuka untuk peluang dan kolaborasi baru. Baik Anda memiliki pertanyaan atau hanya ingin menyapa, kotak masuk saya selalu terbuka. Saya akan berusaha sebaik mungkin untuk membalas Anda!", contact_btn: "Kirim Sapa", footer_credit: "Didesain & Dibuat oleh Rayyan Nur Fauzan",
+        });
+
+
+        // --- LANGUAGE SWITCHER LOGIC ---
+        const langEnBtn = document.getElementById('lang-en');
+        const langIdBtn = document.getElementById('lang-id');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        const setLanguage = (lang) => {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+
+            const elements = document.querySelectorAll('[data-lang-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update button styles
+            if (lang === 'en') {
+                langEnBtn.classList.remove('bg-transparent', 'text-gray-400', 'border-gray-600');
+                langEnBtn.classList.add('bg-blue-500/20', 'text-white', 'border-blue-400');
+                langIdBtn.classList.add('bg-transparent', 'text-gray-400', 'border-gray-600');
+                langIdBtn.classList.remove('bg-blue-500/20', 'text-white', 'border-blue-400');
+            } else {
+                langIdBtn.classList.remove('bg-transparent', 'text-gray-400', 'border-gray-600');
+                langIdBtn.classList.add('bg-blue-500/20', 'text-white', 'border-blue-400');
+                langEnBtn.classList.add('bg-transparent', 'text-gray-400', 'border-gray-600');
+                langEnBtn.classList.remove('bg-blue-500/20', 'text-white', 'border-blue-400');
+            }
+        };
+
+        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        langIdBtn.addEventListener('click', () => setLanguage('id'));
+        
+        // --- THEME SWITCHER ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-icon-light');
+        const darkIcon = document.getElementById('theme-icon-dark');
+
+        const setTheme = (theme) => {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+            localStorage.setItem('theme', theme);
+        };
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Set initial theme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            // Default to dark mode as per original design
+             setTheme('dark');
+        }
+
+
+        // Set initial language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+
+        // --- MOBILE MENU ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // --- NAVBAR SCROLL EFFECT ---
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                // Scroll down
+                header.style.top = "-100px";
+            } else {
+                // Scroll up
+                header.style.top = "0";
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        }, false);
+
+    </script>
+</body>
+</html>
+
